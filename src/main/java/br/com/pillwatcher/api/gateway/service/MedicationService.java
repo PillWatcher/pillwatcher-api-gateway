@@ -34,15 +34,6 @@ public class MedicationService extends RestTemplateCommon {
             });
   }
 
-  private HttpParametersBuilder getPrescriptionParameter(final String prescriptionId) {
-    MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
-    queryParams.add("prescriptionId", prescriptionId);
-
-    HttpParametersBuilder builder = new HttpParametersBuilder();
-    builder.addUrlQueryParameter(queryParams);
-    return builder;
-  }
-
   public void deleteMedication(final Long medicationId) {
     deleteForObject(pillWatcherGatewayURI.uriMedication(medicationId));
   }
@@ -58,6 +49,15 @@ public class MedicationService extends RestTemplateCommon {
     return updateForObject(pillWatcherGatewayURI.uriMedication(medicationId), body,
             new ParameterizedTypeReference<PrescriptionMedicationDTOForResponse>() {
             });
+  }
+
+  private HttpParametersBuilder getPrescriptionParameter(final String prescriptionId) {
+    MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+    queryParams.add("prescriptionId", prescriptionId);
+
+    HttpParametersBuilder builder = new HttpParametersBuilder();
+    builder.addUrlQueryParameter(queryParams);
+    return builder;
   }
 
 }

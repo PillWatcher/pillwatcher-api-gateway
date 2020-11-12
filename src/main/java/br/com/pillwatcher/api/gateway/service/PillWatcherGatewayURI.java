@@ -95,4 +95,10 @@ public class PillWatcherGatewayURI {
     return uriBuilder.buildAndExpand(medicationId).toUri();
   }
 
+  public URI uriSupply() {
+    UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromHttpUrl(
+            patientHost + Constants.SUPPLY_BASE_PATH);
+    return uriBuilder.build().toUri();
+  }
+
 }
