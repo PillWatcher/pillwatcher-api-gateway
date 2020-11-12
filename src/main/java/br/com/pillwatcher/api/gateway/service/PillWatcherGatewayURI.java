@@ -8,7 +8,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import java.net.URI;
 
 @Component
-public class PaymentGatewayURI {
+public class PillWatcherGatewayURI {
 
   @Value("${admin.host}")
   private String adminHost;
@@ -53,6 +53,12 @@ public class PaymentGatewayURI {
     UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromHttpUrl(
             patientHost + Constants.MEDICINE_BASE_PATH + Constants.MEDICINE_ID_BASE_PATH);
     return uriBuilder.buildAndExpand(id).toUri();
+  }
+
+  public URI uriPatientCreate() {
+    UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromHttpUrl(
+            patientHost + Constants.MEDICINE_BASE_PATH);
+    return uriBuilder.build().toUri();
   }
 
 }

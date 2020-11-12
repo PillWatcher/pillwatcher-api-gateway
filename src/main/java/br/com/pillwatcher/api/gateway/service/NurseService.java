@@ -12,9 +12,9 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class NurseService extends RestTemplateCommon {
 
-  private final PaymentGatewayURI paymentGatewayURI;
+  private final PillWatcherGatewayURI paymentGatewayURI;
 
-  public NurseService(RestTemplate restTemplate, PaymentGatewayURI paymentGatewayURI) {
+  public NurseService(RestTemplate restTemplate, PillWatcherGatewayURI paymentGatewayURI) {
     super(restTemplate);
     this.paymentGatewayURI = paymentGatewayURI;
   }

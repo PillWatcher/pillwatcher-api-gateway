@@ -12,10 +12,10 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class AdminService extends RestTemplateCommon {
 
-  private final PaymentGatewayURI paymentGatewayURI;
+  private final PillWatcherGatewayURI paymentGatewayURI;
 
   public AdminService(final RestTemplate restTemplate,
-                      final PaymentGatewayURI paymentGatewayURI) {
+                      final PillWatcherGatewayURI paymentGatewayURI) {
     super(restTemplate);
     this.paymentGatewayURI = paymentGatewayURI;
   }
