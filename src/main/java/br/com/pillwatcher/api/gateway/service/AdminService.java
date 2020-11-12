@@ -15,9 +15,9 @@ public class AdminService extends RestTemplateCommon {
   private final PillWatcherGatewayURI pillWatcherGatewayURI;
 
   public AdminService(final RestTemplate restTemplate,
-                      final PillWatcherGatewayURI paymentGatewayURI) {
+                      final PillWatcherGatewayURI pillWatcherGatewayURI) {
     super(restTemplate);
-    this.pillWatcherGatewayURI = paymentGatewayURI;
+    this.pillWatcherGatewayURI = pillWatcherGatewayURI;
   }
 
   public AdminDTOForResponse createAdmin(final AdminDTOForCreate dtoForCreate) {

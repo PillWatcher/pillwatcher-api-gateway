@@ -17,5 +17,7 @@ public class Constants {
   public static final String MEDICATION_BASE_PATH = BASE_PATH + "/medications";
   public static final String MEDICATION_ID_PATH = "/{medicationId}";
   public static final String SUPPLY_BASE_PATH = BASE_PATH + "/supplies";
+  public static final String PRESCRIPTION_BASE_PATH = BASE_PATH + "/prescriptions";
+  public static final String PRESCRIPTION_ID_BASE_PATH = BASE_PATH + "/prescriptions/{prescriptionId}";
 
 }
