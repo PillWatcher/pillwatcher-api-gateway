@@ -61,4 +61,22 @@ public class PillWatcherGatewayURI {
     return uriBuilder.build().toUri();
   }
 
+  public URI uriPrescriptionCreate() {
+    UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromHttpUrl(
+            patientHost + Constants.PRESCRIPTION_BASE_PATH);
+    return uriBuilder.build().toUri();
+  }
+
+  public URI uriPrescriptionGetAll() {
+    UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromHttpUrl(
+            patientHost + Constants.PRESCRIPTION_BASE_PATH);
+    return uriBuilder.build().toUri();
+  }
+
+  public URI uriPrescriptionGetDeleteOrUpdate(final Long id) {
+    UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromHttpUrl(
+            patientHost + Constants.PRESCRIPTION_ID_BASE_PATH);
+    return uriBuilder.buildAndExpand(id).toUri();
+  }
+
 }
