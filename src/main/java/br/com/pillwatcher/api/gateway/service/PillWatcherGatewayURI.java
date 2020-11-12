@@ -16,6 +16,9 @@ public class PaymentGatewayURI {
   @Value("${nurse.host}")
   private String nurseHost;
 
+  @Value("${patient.host}")
+  private String patientHost;
+
   public URI uriAdminCreate() {
     UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromHttpUrl(
             adminHost + Constants.ADMIN_BASE_PATH);
@@ -38,6 +41,18 @@ public class PaymentGatewayURI {
     UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromHttpUrl(
             nurseHost + Constants.NURSE_BASE_PATH + Constants.CPF_PATH);
     return uriBuilder.buildAndExpand(cpf).toUri();
+  }
+
+  public URI uriMedicineCreate() {
+    UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromHttpUrl(
+            patientHost + Constants.MEDICINE_BASE_PATH);
+    return uriBuilder.build().toUri();
+  }
+
+  public URI uriMedicine(final Long id) {
+    UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromHttpUrl(
+            patientHost + Constants.MEDICINE_BASE_PATH + Constants.MEDICINE_ID_BASE_PATH);
+    return uriBuilder.buildAndExpand(id).toUri();
   }
 
 }
