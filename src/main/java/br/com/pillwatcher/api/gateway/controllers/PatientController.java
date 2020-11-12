@@ -23,7 +23,6 @@ public class PatientController {
   @PostMapping
   public ResponseEntity<PatientDTOForResponse> createPatient(@Valid @RequestBody final PatientDTOForCreate dtoForCreate,
                                                              @Valid @RequestParam(value = "nurseId") final Long nurseId) {
-
     return ResponseEntity.ok(patientService.dtoForCreate(nurseId, dtoForCreate));
   }
 
@@ -31,14 +30,12 @@ public class PatientController {
   public ResponseEntity<PatientDTOForResponse> updatePatient(@Valid final @RequestBody PatientDTOForUpdate dtoForUpdate,
                                                              final @RequestParam(value = "nurseId") Long nurseId,
                                                              final @PathVariable("cpf") String cpf) {
-
     return ResponseEntity.ok(patientService.updatePatient(nurseId, cpf, dtoForUpdate));
   }
 
   @GetMapping(Constants.CPF_PATH)
   public ResponseEntity<PatientDTOForResponse> getPatient(final @PathVariable("cpf") String cpf,
                                                           final @RequestParam(value = "nurseId") Long nurseId) {
-
     return ResponseEntity.ok(patientService.getPatient(nurseId, cpf));
   }
 
