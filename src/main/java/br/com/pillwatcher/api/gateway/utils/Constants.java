@@ -14,5 +14,7 @@ public class Constants {
   public static final String PATIENT_BASE_PATH = BASE_PATH + "/patients";
   public static final String PATIENT_NURSE_BASE_PATH = CPF_PATH + "/nurse/{nurseId}";
   public static final String PATIENT_ID_BASE_PATH = "/{patientId}/details";
+  public static final String MEDICATION_BASE_PATH = BASE_PATH + "/medications";
+  public static final String MEDICATION_ID_PATH = "/{medicationId}";
 
 }

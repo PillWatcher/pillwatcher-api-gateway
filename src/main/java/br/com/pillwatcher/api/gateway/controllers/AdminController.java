@@ -6,6 +6,7 @@ import br.com.pillwatcher.api.gateway.dto.admin.AdminDTOForResponse;
 import br.com.pillwatcher.api.gateway.dto.admin.AdminDTOForUpdate;
 import br.com.pillwatcher.api.gateway.service.AdminService;
 import br.com.pillwatcher.api.gateway.utils.Constants;
+import io.swagger.annotations.Api;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +18,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @RequiredArgsConstructor
 @RestController
+@Api(tags = {"Admin"})
 @RequestMapping(value = Constants.ADMIN_BASE_PATH, produces = APPLICATION_JSON_VALUE)
 public class AdminController {
 

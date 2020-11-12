@@ -12,33 +12,33 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class AdminService extends RestTemplateCommon {
 
-  private final PillWatcherGatewayURI paymentGatewayURI;
+  private final PillWatcherGatewayURI pillWatcherGatewayURI;
 
   public AdminService(final RestTemplate restTemplate,
                       final PillWatcherGatewayURI paymentGatewayURI) {
     super(restTemplate);
-    this.paymentGatewayURI = paymentGatewayURI;
+    this.pillWatcherGatewayURI = paymentGatewayURI;
   }
 
   public AdminDTOForResponse createAdmin(final AdminDTOForCreate dtoForCreate) {
-    return postForObject(paymentGatewayURI.uriAdminCreate(), dtoForCreate,
+    return postForObject(pillWatcherGatewayURI.uriAdminCreate(), dtoForCreate,
             new ParameterizedTypeReference<AdminDTOForResponse>() {
             });
   }
 
   public AdminDTOForGet getAdmin(final String cpf) {
-    return getForObject(paymentGatewayURI.uriAdminCPF(cpf),
+    return getForObject(pillWatcherGatewayURI.uriAdminCPF(cpf),
             new ParameterizedTypeReference<AdminDTOForGet>() {
             });
   }
 
   public AdminDTOForResponse putAdmin(final String cpf, final AdminDTOForUpdate dtoForUpdate) {
-    return updateForObject(paymentGatewayURI.uriAdminCPF(cpf), dtoForUpdate,
+    return updateForObject(pillWatcherGatewayURI.uriAdminCPF(cpf), dtoForUpdate,
             new ParameterizedTypeReference<AdminDTOForResponse>() {
             });
   }
 
   public void deleteAdmin(final String cpf) {
-    deleteForObject(paymentGatewayURI.uriAdminCPF(cpf));
+    deleteForObject(pillWatcherGatewayURI.uriAdminCPF(cpf));
   }
 }

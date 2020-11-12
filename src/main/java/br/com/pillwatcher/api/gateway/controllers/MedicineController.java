@@ -5,6 +5,7 @@ import br.com.pillwatcher.api.gateway.dto.medicine.MedicineDTOForCreate;
 import br.com.pillwatcher.api.gateway.dto.medicine.MedicineDTOForResponse;
 import br.com.pillwatcher.api.gateway.service.MedicineService;
 import br.com.pillwatcher.api.gateway.utils.Constants;
+import io.swagger.annotations.Api;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +16,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @RequiredArgsConstructor
 @RestController
+@Api(tags = {"Medicine"})
 @RequestMapping(value = Constants.MEDICINE_BASE_PATH, produces = APPLICATION_JSON_VALUE)
 public class MedicineController {
 

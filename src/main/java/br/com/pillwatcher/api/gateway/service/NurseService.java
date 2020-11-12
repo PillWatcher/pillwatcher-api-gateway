@@ -12,37 +12,37 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class NurseService extends RestTemplateCommon {
 
-  private final PillWatcherGatewayURI paymentGatewayURI;
+  private final PillWatcherGatewayURI pillWatcherGatewayURI;
 
   public NurseService(RestTemplate restTemplate, PillWatcherGatewayURI paymentGatewayURI) {
     super(restTemplate);
-    this.paymentGatewayURI = paymentGatewayURI;
+    this.pillWatcherGatewayURI = paymentGatewayURI;
   }
 
   public NurseDTOForResponse createNurse(final NurseDTOForCreate body) {
-    return postForObject(paymentGatewayURI.uriNurseCreate(), body,
+    return postForObject(pillWatcherGatewayURI.uriNurseCreate(), body,
             new ParameterizedTypeReference<NurseDTOForResponse>() {
             });
   }
 
   public NurseDTOForResponse getNurse(final String cpf) {
-    return getForObject(paymentGatewayURI.uriNurseCPF(cpf),
+    return getForObject(pillWatcherGatewayURI.uriNurseCPF(cpf),
             new ParameterizedTypeReference<NurseDTOForResponse>() {
             });
   }
 
   public NurseDTOForResponse updateNurse(final String cpf, final NurseDTOForUpdate body) {
-    return updateForObject(paymentGatewayURI.uriNurseCPF(cpf), body,
+    return updateForObject(pillWatcherGatewayURI.uriNurseCPF(cpf), body,
             new ParameterizedTypeReference<NurseDTOForResponse>() {
             });
   }
 
   public void deleteNurse(final String cpf) {
-    deleteForObject(paymentGatewayURI.uriNurseCPF(cpf));
+    deleteForObject(pillWatcherGatewayURI.uriNurseCPF(cpf));
   }
 
   public WrapperListResponse getAllNurses() {
-    return getForObject(paymentGatewayURI.uriNurseCreate(),
+    return getForObject(pillWatcherGatewayURI.uriNurseCreate(),
             new ParameterizedTypeReference<WrapperListResponse>() {
             });
   }

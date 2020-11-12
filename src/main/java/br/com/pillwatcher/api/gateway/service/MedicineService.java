@@ -11,37 +11,37 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class MedicineService extends RestTemplateCommon {
 
-  private final PillWatcherGatewayURI paymentGatewayURI;
+  private final PillWatcherGatewayURI pillWatcherGatewayURI;
 
   public MedicineService(RestTemplate restTemplate, PillWatcherGatewayURI paymentGatewayURI) {
     super(restTemplate);
-    this.paymentGatewayURI = paymentGatewayURI;
+    this.pillWatcherGatewayURI = paymentGatewayURI;
   }
 
   public MedicineDTOForResponse createMedicine(final MedicineDTOForCreate body) {
-    return postForObject(paymentGatewayURI.uriMedicineCreate(), body,
+    return postForObject(pillWatcherGatewayURI.uriMedicineCreate(), body,
             new ParameterizedTypeReference<MedicineDTOForResponse>() {
             });
   }
 
   public void deleteMedicine(final Long medicineId) {
-    deleteForObject(paymentGatewayURI.uriMedicine(medicineId));
+    deleteForObject(pillWatcherGatewayURI.uriMedicine(medicineId));
   }
 
   public MedicineDTOForAll getAllMedicines() {
-    return getForObject(paymentGatewayURI.uriMedicineCreate(),
+    return getForObject(pillWatcherGatewayURI.uriMedicineCreate(),
             new ParameterizedTypeReference<MedicineDTOForAll>() {
             });
   }
 
   public MedicineDTOForResponse getMedicine(final Long medicineId) {
-    return getForObject(paymentGatewayURI.uriMedicine(medicineId),
+    return getForObject(pillWatcherGatewayURI.uriMedicine(medicineId),
             new ParameterizedTypeReference<MedicineDTOForResponse>() {
             });
   }
 
   public MedicineDTOForResponse updateMedicine(final Long medicineId, final MedicineDTOForCreate body) {
-    return updateForObject(paymentGatewayURI.uriMedicine(medicineId), body,
+    return updateForObject(pillWatcherGatewayURI.uriMedicine(medicineId), body,
             new ParameterizedTypeReference<MedicineDTOForResponse>() {
             });
   }

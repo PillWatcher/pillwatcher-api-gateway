@@ -54,6 +54,12 @@ public class PatientService extends RestTemplateCommon {
             });
   }
 
+  public PatientDetailsDTOForResponse getPatientDetails(final Long patientId) {
+    return getForObject(pillWatcherGatewayURI.uriPatientId(patientId),
+            new ParameterizedTypeReference<PatientDetailsDTOForResponse>() {
+            });
+  }
+
   private HttpParametersBuilder getNurseParameter(final String nurseId) {
     MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
     queryParams.add("nurseId", nurseId);
@@ -63,9 +69,4 @@ public class PatientService extends RestTemplateCommon {
     return builder;
   }
 
-  public PatientDetailsDTOForResponse getPatientDetails(final Long patientId) {
-    return getForObject(pillWatcherGatewayURI.uriPatientId(patientId),
-            new ParameterizedTypeReference<PatientDetailsDTOForResponse>() {
-            });
-  }
 }
