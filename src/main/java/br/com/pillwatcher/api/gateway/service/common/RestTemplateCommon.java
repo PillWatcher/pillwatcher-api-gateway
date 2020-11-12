@@ -27,7 +27,7 @@ public class RestTemplateCommon {
   }
 
   public void deleteForObject(URI url) {
-    restTemplate.exchange(url, HttpMethod.DELETE, null, Void.class).getBody();
+    restTemplate.exchange(url, HttpMethod.DELETE, null, Void.class);
   }
 
   public <T> T updateForObject(URI url, Object body, ParameterizedTypeReference<T> responseType) {

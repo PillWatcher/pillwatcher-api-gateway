@@ -1,7 +1,9 @@
 package br.com.pillwatcher.api.gateway.service;
 
 import br.com.pillwatcher.api.gateway.dto.admin.AdminDTOForCreate;
+import br.com.pillwatcher.api.gateway.dto.admin.AdminDTOForGet;
 import br.com.pillwatcher.api.gateway.dto.admin.AdminDTOForResponse;
+import br.com.pillwatcher.api.gateway.dto.admin.AdminDTOForUpdate;
 import br.com.pillwatcher.api.gateway.service.common.RestTemplateCommon;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.stereotype.Service;
@@ -24,4 +26,19 @@ public class AdminService extends RestTemplateCommon {
             });
   }
 
+  public AdminDTOForGet getAdmin(final String cpf) {
+    return getForObject(paymentGatewayURI.uriAdminCPF(cpf),
+            new ParameterizedTypeReference<AdminDTOForGet>() {
+            });
+  }
+
+  public AdminDTOForResponse putAdmin(final String cpf, final AdminDTOForUpdate dtoForUpdate) {
+    return updateForObject(paymentGatewayURI.uriAdminCPF(cpf), dtoForUpdate,
+            new ParameterizedTypeReference<AdminDTOForResponse>() {
+            });
+  }
+
+  public void deleteAdmin(final String cpf) {
+    deleteForObject(paymentGatewayURI.uriAdminCPF(cpf));
+  }
 }
