@@ -25,7 +25,7 @@ public class MedicationController {
 
   @PostMapping
   public ResponseEntity<PrescriptionMedicationDTOForResponse> createMedication(
-          @Valid final PrescriptionMedicationDTOForCreate body, @NotNull @Valid final Long prescriptionId) {
+          @Valid @RequestBody final PrescriptionMedicationDTOForCreate body, @NotNull @Valid final Long prescriptionId) {
     return ResponseEntity.ok(medicationService.createMedication(prescriptionId, body));
   }
 
@@ -47,7 +47,7 @@ public class MedicationController {
 
   @PutMapping(Constants.MEDICATION_ID_PATH)
   public ResponseEntity<PrescriptionMedicationDTOForResponse> updateMedication(
-          @Valid final PrescriptionMedicationDTOForCreate body, final Long medicationId) {
+          @Valid @RequestBody final PrescriptionMedicationDTOForCreate body, @PathVariable("medicationId") final Long medicationId) {
     return ResponseEntity.ok(medicationService.updateMedication(medicationId, body));
   }
 

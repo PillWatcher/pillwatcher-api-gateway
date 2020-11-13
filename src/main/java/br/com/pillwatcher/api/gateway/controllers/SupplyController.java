@@ -8,6 +8,7 @@ import io.swagger.annotations.Api;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -24,7 +25,7 @@ public class SupplyController {
   private final SupplyService supplyService;
 
   @PostMapping
-  public ResponseEntity<SupplyForResponseDTO> createSupply(@Valid final SupplyForCreateDTO body) {
+  public ResponseEntity<SupplyForResponseDTO> createSupply(@Valid @RequestBody final SupplyForCreateDTO body) {
     return ResponseEntity.ok(supplyService.createSupply(body));
   }
 

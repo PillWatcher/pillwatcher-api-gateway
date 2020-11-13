@@ -25,7 +25,8 @@ public class RestTemplateResponseErrorHandler implements ResponseErrorHandler {
     final HttpStatus statusCode = httpResponse.getStatusCode();
 
     Fault fault = ObjectMapperUtil.toObject(IOUtils.toString(httpResponse.getBody(), StandardCharsets.UTF_8), Fault.class);
-    throw new BaseException(fault.getCode(), fault.getMessage(), fault.getDetails().get(0), statusCode);
+    throw new BaseException(fault.getCode() == null ? "INTERNAL_SERVER_ERROR" : fault.getCode(),
+            fault.getMessage(), fault.getDetails() != null ? fault.getDetails().get(0) : "", statusCode);
 
   }
 

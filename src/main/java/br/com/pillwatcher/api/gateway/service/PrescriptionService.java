@@ -6,12 +6,12 @@ import br.com.pillwatcher.api.gateway.dto.patient.prescription.PatientPrescripti
 import br.com.pillwatcher.api.gateway.service.common.HttpParametersBuilder;
 import br.com.pillwatcher.api.gateway.service.common.RestTemplateCommon;
 import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.stereotype.Service;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.List;
-
+@Service
 public class PrescriptionService extends RestTemplateCommon {
 
   private final PillWatcherGatewayURI pillWatcherGatewayURI;

@@ -23,7 +23,7 @@ public class MedicineController {
   private final MedicineService medicineService;
 
   @PostMapping
-  public ResponseEntity<MedicineDTOForResponse> createMedicine(final @Valid MedicineDTOForCreate body) {
+  public ResponseEntity<MedicineDTOForResponse> createMedicine(final @RequestBody @Valid MedicineDTOForCreate body) {
     return ResponseEntity.ok(medicineService.createMedicine(body));
   }
 
@@ -39,12 +39,13 @@ public class MedicineController {
   }
 
   @GetMapping(Constants.MEDICINE_ID_BASE_PATH)
-  public ResponseEntity<MedicineDTOForResponse> getMedicine(final Long medicineId) {
+  public ResponseEntity<MedicineDTOForResponse> getMedicine(@PathVariable("medicineId") final Long medicineId) {
     return ResponseEntity.ok(medicineService.getMedicine(medicineId));
   }
 
   @PutMapping(Constants.MEDICINE_ID_BASE_PATH)
-  public ResponseEntity<MedicineDTOForResponse> updateMedicine(@Valid MedicineDTOForCreate body, Long medicineId) {
+  public ResponseEntity<MedicineDTOForResponse> updateMedicine(@RequestBody @Valid MedicineDTOForCreate body,
+                                                               @PathVariable("medicineId") Long medicineId) {
     return ResponseEntity.ok(medicineService.updateMedicine(medicineId, body));
   }
 
